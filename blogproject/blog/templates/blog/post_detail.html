@@ -1,0 +1,9 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <p><strong>Created on:</strong> {{ post.created_at }}</p>
+    <p>{{ post.content }}</p>
+
+    <a href="{% url 'post_edit' id=post.id %}">Edit</a>
+{% endblock %}

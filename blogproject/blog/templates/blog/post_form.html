@@ -1,0 +1,17 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+    <h2>{% if post %}Edit{% else %}Create{% endif %} Blog Post</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+        <button type="submit">Save</button>
+    </form>
+
+    {% if post %}
+        <a href="{% url 'post_detail' id=post.id %}">Cancel</a>
+    {% else %}
+        <a href="{% url 'post_list' %}">Cancel</a>
+    {% endif %}
+{% endblock %}
